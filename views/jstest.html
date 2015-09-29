@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+	<title>Javascript Test</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<p>Please input grade</p>
+	<input type="text" id="demo1"/>
+	<input type="button" onclick="getStatus()" value="Get Status"/>
+	<div id="message"></div>
+	<a href = "javascript:void(document.body.style.backgroundColor='yellow');">
+	Click me!<br/><a>
+	<input type = "button" onclick = "guessNumber()" value ="Guess a number">
+
+	<script>
+		
+		function getStatus(){
+			var grade = document.getElementById("demo1").value;
+			var status = (Number(grade) >= 55) ? "Pass":"Fail";
+			document.getElementById("message").innerHTML = status;
+		}
+
+		/*Comma*/
+
+		for(var i=1, j=10; i<=10; i++, j++){
+			document.write(i + " " + j + "<br/>");
+		}
+
+		/*Delete*/
+		var person = {
+			fname: "Juan",
+			lname: "Dela Cruz",
+			age: 50
+		};
+
+		console.log(person.age);
+		delete person.age;
+		console.log(person.age);
+
+		/*Function*/
+		var x = function(a, b){
+			return a + b;
+		}
+		console.log(x(6, 9));
+
+		/*in*/
+		var person = {
+			fname: "Juan",
+			lname: "Dela Cruz",
+			age: 50
+		};
+
+		if("age" in person){
+			console.log("Age property is in person");
+		}
+
+		/*new*/
+		var str = new String("Hello world!");
+		var date1 = new Date();
+		console.log(date1);
+
+		/*instanceof*/
+		if(str instanceof String){
+			console.log("str is an instance of String");
+		}
+		else{
+			console.log("str is not an instance of String.")
+		}
+
+		/*typeof*/
+		console.log(typeof"");
+		console.log(typeof(4+7));
+
+		try{
+			aleeert("Welcome guest!");
+		}
+		catch(err){
+			alert(err.message);
+		}
+
+		function guessNumber(){
+			var x = prompt("Enter a number");
+			try{
+				if(x=="") throw "empty";
+				if(isNaN(x)) throw "not a number";
+				x = Number(x);
+				if(x<5) throw "too low";
+				if(x>10) throw "too high"
+			}
+			catch(err){
+				alert("Input is " + err);
+			}
+			finally{
+				alert("End of try-catch statement");
+			}
+		}
+
+	</script>
+</body>
+</html>
